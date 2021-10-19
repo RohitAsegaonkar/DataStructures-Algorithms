@@ -43,10 +43,10 @@ return(s0);
 }
 int main(){
 
-int a[8]= {50,70,20,60,30,180,10,25};
+int a[7]= {50,70,20,60,30,180,10};
 res s;
 
-s = DACmaxmin(a,0,7);
+s = DACmaxmin(a,0,6);
 cout<<s.max<<" "<<s.min<<endl;
     return 0;
 }
