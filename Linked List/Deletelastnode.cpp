@@ -3,8 +3,9 @@ using namespace std;
 
 /******************************************
  *  Author : Rohit Kishor Asegaonkar
- *  Created On : Tue Oct 19 2021
- *  File : InsertNodeBeforeNode.cpp
+ *  Created On : Thu Oct 21 2021
+ *  File : Deletelastnode.cpp
+ *  Contact : https://rohitasegaonkar.github.io/
  *******************************************/
 struct node
 {
@@ -23,38 +24,28 @@ void printSLL(struct node* s){
 
 /* New node is created in the Heap Area using malloc().
    and is added in before a Node with data y of linked list*/
-struct node* InsertNodeBeforeNode(struct node* s, char x,char y){
+struct node* Deletelastnode (struct node* s){
     struct node* p;
     struct node* s1;
-    struct node* q;
-    p = (struct node *)malloc(sizeof(struct node));
 
-    if(p == nullptr){
-        cout<<"Heap Memory is Full!!!"<<endl;
+    if(s==nullptr){
+        cout<<"Linked List is Empty!"<<endl;
+        return(NULL);
     }
-
-    p->data=x;
-    p->next=nullptr;
-
-    if(s == nullptr){
-        s=p;
+    if(s->next == nullptr){
+        s = nullptr;
+        free(s);
         return(s);
     }
-    if(s->data == y){
-        s=q;
-    }
-    s1 = s;
-    while(s1->data!= y && s1->next!=nullptr){
-        q=s1;
+    s1=s;
+    while(s1->next!=nullptr){
+        p=s1;
         s1=s1->next;
     }
-    if(s1->data == y){
-        p->next = s1;
-        q->next = p;
-    }
-    else{
-        printf("No y was found!\n");
-    }
+    p->next = nullptr;
+    s1 = nullptr;
+    free(s1);
+
     return(s);
 }
 /* Created Linked list Explicitly by adding manually value.
@@ -73,7 +64,7 @@ struct node *CreateLinkedList(){
     c.next = &d;
     d.next = &e;
 
-    s = InsertNodeBeforeNode(s,'r','h');
+    s = Deletelastnode(s);
     printSLL(s);
     return s;
 }

@@ -4,6 +4,7 @@
         "complex": "cpp",
         "bit": "cpp",
         "*.tcc": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "ostream": "cpp"
     }
 }

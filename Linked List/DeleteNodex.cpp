@@ -3,8 +3,9 @@ using namespace std;
 
 /******************************************
  *  Author : Rohit Kishor Asegaonkar
- *  Created On : Tue Oct 19 2021
- *  File : InsertNodeBeforeNode.cpp
+ *  Created On : Thu Oct 21 2021
+ *  File : Deletelastnode.cpp
+ *  Contact : https://rohitasegaonkar.github.io/
  *******************************************/
 struct node
 {
@@ -23,37 +24,37 @@ void printSLL(struct node* s){
 
 /* New node is created in the Heap Area using malloc().
    and is added in before a Node with data y of linked list*/
-struct node* InsertNodeBeforeNode(struct node* s, char x,char y){
+struct node* DeleteNodex (struct node* s, char x){
     struct node* p;
     struct node* s1;
-    struct node* q;
-    p = (struct node *)malloc(sizeof(struct node));
 
-    if(p == nullptr){
-        cout<<"Heap Memory is Full!!!"<<endl;
+    if(s==nullptr){
+        cout<<"Linked List is Empty!"<<endl;
+        return(NULL);
     }
-
-    p->data=x;
-    p->next=nullptr;
-
-    if(s == nullptr){
-        s=p;
+    if(s->next==nullptr && s->data == x){
+        s = nullptr;
+        free(s);
         return(s);
     }
-    if(s->data == y){
-        s=q;
+    else{
+        cout<<"Data x not found bro!!"<<endl;
+        return(s);
     }
-    s1 = s;
-    while(s1->data!= y && s1->next!=nullptr){
-        q=s1;
+    s1=s;
+    while(s1->data!= x){
+        p=s1;
         s1=s1->next;
     }
-    if(s1->data == y){
-        p->next = s1;
-        q->next = p;
+    if(s1->data == x){
+        p->next = s1->next;
+       // free(s1);
+        s1->next = nullptr;
+        
     }
     else{
-        printf("No y was found!\n");
+        cout<<"Data x not found bro!!"<<endl;
+        return(s);
     }
     return(s);
 }
@@ -73,7 +74,7 @@ struct node *CreateLinkedList(){
     c.next = &d;
     d.next = &e;
 
-    s = InsertNodeBeforeNode(s,'r','h');
+    s = DeleteNodex(s,'r');
     printSLL(s);
     return s;
 }
