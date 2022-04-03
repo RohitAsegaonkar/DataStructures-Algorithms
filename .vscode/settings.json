@@ -5,6 +5,10 @@
         "bit": "cpp",
         "*.tcc": "cpp",
         "random": "cpp",
-        "ostream": "cpp"
-    }
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "string": "cpp"
+    },
+    "cmake.configureOnOpen": false
 }

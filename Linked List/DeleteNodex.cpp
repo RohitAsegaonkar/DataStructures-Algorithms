@@ -34,23 +34,16 @@ struct node* DeleteNodex (struct node* s, char x){
     }
     if(s->next==nullptr && s->data == x){
         s = nullptr;
-        free(s);
-        return(s);
-    }
-    else{
-        cout<<"Data x not found bro!!"<<endl;
         return(s);
     }
     s1=s;
-    while(s1->data!= x){
+    while(s1->data!= x && s1->next!=nullptr){
         p=s1;
         s1=s1->next;
     }
     if(s1->data == x){
         p->next = s1->next;
-       // free(s1);
         s1->next = nullptr;
-        
     }
     else{
         cout<<"Data x not found bro!!"<<endl;
@@ -74,7 +67,7 @@ struct node *CreateLinkedList(){
     c.next = &d;
     d.next = &e;
 
-    s = DeleteNodex(s,'r');
+    s = DeleteNodex(s,'c');
     printSLL(s);
     return s;
 }
